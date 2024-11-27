@@ -9,7 +9,7 @@ export const addToCart = (options, quantity, id) => {
   };
 };
 
-export const removeFromCrat = (id) => {
+export const removeFromCart = (id) => {
   return {
     type: "removeFromCart",
     payload: { id },
@@ -19,9 +19,9 @@ export const removeFromCrat = (id) => {
 const cartReducer = (state = [], action) => {
   switch (action.type) {
     case "addToCart":
-      [...state, action.payload];
+      return [...state, action.payload];
     case "removeFromCart":
-      Cart.filter((el) => action.payload.id !== el.id);
+      return state.filter((el) => el.id !== action.payload.id);
     default:
       return state;
   }

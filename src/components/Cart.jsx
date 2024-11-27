@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import data from "../assets/data";
-import { removeFromCrat } from "../../redux/redux";
+import { removeFromCart } from "../../redux/redux";
 
-function Cart({}) {
+function Cart() {
   const menu = useSelector((state) => state.menuReducer);
   const cart = useSelector((state) => state.cartReducer);
 
@@ -54,7 +54,7 @@ function CartItem({ item, options, quantity }) {
       <button
         className="cart-item-delete"
         onClick={() => {
-          dispatch(removeFromCrat(item.id));
+          dispatch(removeFromCart(item.id));
         }}
       >
         삭제

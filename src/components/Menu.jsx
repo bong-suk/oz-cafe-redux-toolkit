@@ -5,9 +5,6 @@ import { useSelector } from "react-redux";
 
 function Menu() {
   const menu = useSelector((state) => state.menuReducer);
-
-  const [modalOn, setModalOn] = useState(false);
-  const [modalMenu, setModalMenu] = useState(null);
   if (!menu)
     return (
       <div style={{ textAlign: "center", margin: "80px" }}>
@@ -15,7 +12,8 @@ function Menu() {
         메뉴 정보가 없어요!
       </div>
     );
-
+  const [modalOn, setModalOn] = useState(false);
+  const [modalMenu, setModalMenu] = useState(null);
   const categorys = Object.keys(menu);
   return (
     <>
